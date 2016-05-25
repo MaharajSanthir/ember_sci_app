@@ -1,3 +1,5 @@
+import Mirage from 'ember-cli-mirage';
+
 export default function() {
 
   this.get('/scientists', (db) => {
@@ -6,31 +8,28 @@ export default function() {
     };
   });
 
-  //
-  // this.get('/scientists/:id', (db, request)=>{
-  //   var id = request.params.id;
-  //   var scientist = db.scientists.find(id);
-  //
-  //   var JSONapi = {
-  //     data: {
-  //       type: 'scientist',
-  //       id: Number(id),
-  //       attributes: null
-  //     }
-  //   };
-  //
-  //   if(scientist){
-  //     delete scientist.id;
-  //     JSONapi.data.attributes = scientist;
-  //
-  //   } else {
-  //     JSONapi.data.attributes = null;
-  //     JSONapi.data.id = Number(id);
-  //   }
-  //
-  //   return JSONapi;
-  //
-  // });
+
+  this.get('/scientists/:id', (db, request)=>{
+    var id = request.params.id;
+    var scientist = db.scientists.find(id);
+
+    var JSONapi = {
+      data: {
+        type: 'scientist',
+        id: Number(id),
+        attributes: null
+      }
+    };
+
+    if(scientist){
+      delete scientist.id;
+      JSONapi.data.attributes = scientist;
+      return JSONapi;
+    } else {
+      return new Mirage.Response(404, { a: 'header' },JSONapi);
+    }
+
+  });
 
   this.post('/scientists', (db, request) => {
     var attrs = JSON.parse(request.requestBody);
