@@ -1,0 +1,11 @@
+<h2>Manage - List of Scientists</h2>
+<ul>
+{{#each model as |eachScientist|}}
+  {{list-edit-del-button scientist=eachScientist delete=(action 'delete') showEdit=(action 'showEdit')}}
+{{/each}}
+</ul>
+<button {{action "manageScientistsDone"}}>Done</button>
+{{yield}}
+
+
+{{outlet}}

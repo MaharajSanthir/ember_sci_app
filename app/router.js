@@ -6,6 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('add');
+  this.route('manage');
+  this.route('edit', {path: '/edit/:sci_id'});
 });
 
 export default Router;

@@ -1,0 +1,32 @@
+<table>
+    <tr>
+        <td>First Name:</td>
+        <td>
+          {{input type="text" class='firstname' value=firstname size="20"}}<br />
+        </td>
+
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td>
+          {{input type="text" class='lastname' value=lastname size="20"}}<br />
+        </td>
+    </tr>
+    <tr>
+        <td>Known For:</td>
+        <td>
+          {{textarea value=knownfor class='knownfor' cols="22" rows="2"}}<br />
+        </td>
+    </tr>
+    {{#if showError}}
+      <tr>
+          <td colspan="2">
+              <p style="color:red">Must fill in all fields</p>
+          </td>
+      </tr>
+    {{/if}}
+    <tr>
+        <td><button class="submit" {{action 'addScientist'}}>Add Scientist</button></td>
+    </tr>
+</table>
+{{yield}}

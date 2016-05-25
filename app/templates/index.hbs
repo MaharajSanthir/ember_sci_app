@@ -1,0 +1,14 @@
+{{#link-to 'add'}} Add Scientist {{/link-to}}
+{{#link-to 'manage'}} Manage Scientist {{/link-to}}
+
+<ul>
+{{#each model as |eachScientist|}}
+  <li class='name'>{{eachScientist.firstname}} - {{eachScientist.lastname}}
+    <ul>
+        <li>{{eachScientist.knownfor}} </li>
+    </ul>
+  </li>
+{{/each}}
+</ul>
+
+{{outlet}}

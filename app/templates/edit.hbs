@@ -1,0 +1,10 @@
+<h2>Edit Scientist</h2>
+<h4>Current Details:</h4>
+Scientist Name: {{model.firstname}} {{model.lastname}}<br />
+Known For: {{model.knownfor}}
+
+<br /><br />
+
+{{edit-scientist scientist=model saveEdit=(action 'saveEdit') cancelEdit=(action 'cancelEdit')}}
+
+{{outlet}}

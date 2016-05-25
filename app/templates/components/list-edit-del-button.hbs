@@ -1,0 +1,10 @@
+
+    <li>
+        {{scientist.id}}-{{scientist.firstname }} {{scientist.lastname}}
+          <button {{action 'showEdit' scientist.id }}>Edit</button>
+          <button {{action 'delete' scientist.id}}>Delete</button>
+          <ul>
+              <li>Known For: {{scientist.knownfor}}</li>
+          </ul>
+    </li>
+{{yield}}
